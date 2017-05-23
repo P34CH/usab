@@ -222,15 +222,17 @@ function hideMsg() {
 
 
 function showPersonalization() {
-    $("#mainArea-start").hide();
-    $("#personalized-start").show();
     $("#iphone").fadeIn(200);
+    $("#mainArea-start").fadeOut(150, function() {
+        $("#personalized-start").fadeIn(150);
+    });
 }
 
 function hidePersonalization() {
     $("#iphone").fadeOut(100);
-    $("#personalized-start").hide();
-    $("#mainArea-start").show();
+    $("#personalized-start").fadeOut(150, function() {
+        $("#mainArea-start").fadeIn(150);
+    });
     return false;
 }
 

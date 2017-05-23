@@ -276,7 +276,13 @@ body {
   padding: 10px;
   width: 40%;
   font-size: 2.2em;
-  font-weight: 100; }
+  font-weight: 100;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  outline: none;
+  transition: all 0.5s; }
+  .text-input:active, .text-input:focus {
+    background-color: rgba(255, 255, 255, 0.85); }
 
 #editor {
   display: none; }
