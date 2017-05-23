@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>SBB Ticketautomat</title>
+		<link rel="stylesheet" href="resources/styles/ticketautomat.css"/>
+		<script src="resources/scripts/jquery-3.2.1.min.js" type="text/javascript"></script>
+		<script src="resources/scripts/ticketautomat.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="outerContainer">
+
+			<div id="background"></div>
+
+			<div class="mask overview-mask">
+				<div class="bluredBackground"></div>
+			</div>
+
+			<div class="mask mainArea-mask">
+				<div class="bluredBackground"></div>
+			</div>
+
+			<div id="languageSelector">
+				<a class="language-selector language-f">f</a>
+				<a class="language-selector language-i">i</a>
+				<a class="language-selector language-e">e</a>
+			</div>
+			<div id="clock">
+				<div id="clock_sbb"></div>
+				<script src="/resources/scripts/d3-3.5.5.min.js" type="text/javascript"></script>
+				<script src="/resources/scripts/d3clock.js" type="text/javascript"></script>
+				<script type="text/javascript">
+					d3clock({
+						target:'#clock_sbb',
+						face:'sbb',
+						width: 250,
+						TZOffset:{
+							hours:0
+						}
+					});
+				</script>
+			</div>
+
+			<div id="logo">
+				<img src="/resources/images/sbbLogo.jpg">
+			</div>
+
+			<div id="overview">
+
+				<div id="tickets">
+				</div>
+
+				<div id="total">
+					<p>Total</p>
+					<p id="totalAmount">0.00</p>
+				</div>
+
+			</div>
+
+			<div id="mainArea">
+
+				<div id="mainArea-start">
+					<div id="routeTarget">
+						<input type="text" name="target" class="text-input" placeholder="Zielort eingeben..."/>
+					</div>
+
+					<div id="favorites">
+						<h2>Häufigste Ticketkäufe an diesem Automaten</h2>
+						<div id="favoriteTickets">
+							<div class="ticket" data-baseprice="9.00">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Horw">Horw</p>
+								</div>
+								<div class="price">
+									<p>9.00</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_2">
+										<img src="/resources/images/icons/class_2.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="oneway">
+									<img src="/resources/images/icons/oneway.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_11">
+									<img src="/resources/images/icons/price_11.png"/>
+								</div>
+								</div>
+							</div>
+							<div class="ticket" data-baseprice="8.40">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Luzern">Luzern</p>
+								</div>
+								<div class="price">
+									<p>8.40</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_2">
+										<img src="/resources/images/icons/class_2.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="oneway">
+									<img src="/resources/images/icons/oneway.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_11">
+									<img src="/resources/images/icons/price_11.png"/>
+								</div>
+								</div>
+							</div>
+							<div class="ticket" data-baseprice="8.40">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Luzern">Luzern</p>
+								</div>
+								<div class="price">
+									<p>16.80</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_2">
+										<img src="/resources/images/icons/class_2.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="roundtrip">
+									<img src="/resources/images/icons/roundtrip.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_11">
+									<img src="/resources/images/icons/price_11.png"/>
+								</div>
+								</div>
+							</div>
+							<div class="ticket" data-baseprice="9.00">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Zug">Zug</p>
+								</div>
+								<div class="price">
+									<p>4.50</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_2">
+										<img src="/resources/images/icons/class_2.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="oneway">
+									<img src="/resources/images/icons/oneway.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_12">
+									<img src="/resources/images/icons/price_12.png"/>
+								</div>
+								</div>
+							</div>
+							<div class="ticket" data-baseprice="25.45">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Zürich">Zürich</p>
+								</div>
+								<div class="price">
+									<p>38.20</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_1">
+										<img src="/resources/images/icons/class_1.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="oneway">
+									<img src="/resources/images/icons/oneway.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_11">
+									<img src="/resources/images/icons/price_11.png"/>
+								</div>
+								</div>
+							</div>
+							<div class="ticket" data-baseprice="3.10">
+								<div class="route">
+									<p class="from" data-value="Rotkreuz">Rotkreuz</p><!--
+						--><p class="to" data-value="Cham">Cham</p>
+								</div>
+								<div class="price">
+									<p>3.10</p>
+								</div>
+								<div class="features">
+									<div class="feature feature-class" data-feature="class" data-value="class_2">
+										<img src="/resources/images/icons/class_2.png"/>
+									</div><!--
+						--><div class="feature feature-direction" data-feature="direction" data-value="oneway">
+									<img src="/resources/images/icons/oneway.png"/>
+								</div><!--
+						--><div class="feature feature-price" data-feature="price" data-value="price_12">
+									<img src="/resources/images/icons/price_12.png"/>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="more">
+						<h2>Weitere Tickets und Dienstleistungen</h2>
+						<div id="ticketsAndServices">
+							<div class="service">
+								<h4>Tageskarten</h4>
+							</div>
+							<div class="service">
+								<h4>Event-Tickets</h4>
+							</div>
+							<div class="service">
+								<h4>Fahrplanauskunft</h4>
+							</div>
+							<div class="service">
+								<h4>Prepaid Handy-Guthaben</h4>
+							</div>
+							<div class="service">
+								<h4>Tarifverbunde</h4>
+							</div>
+							<div class="service">
+								<h4>mehr...</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div id="editor">
+					<div id="route">
+						<input type="text" name="from" placeholder="Abfahrtsort" class="text-input" value="Rotkreuz">
+						<p>&dash;</p>
+						<input type="text" name="to" placeholder="Zielort" class="text-input">
+					</div>
+
+					<div id="via">
+						<p>
+							<span>+</span>
+							<span>Zwischenziel hinzufügen</span>
+							<span></span>
+						</p>
+					</div>
+
+					<div id="controls">
+						<div id="class-control" class="control" data-feature="class">
+							<div class="control-options">
+								<div class="control-option" data-value="class_1" data-pricefactor="1.5"><img src="/resources/images/icons/class_1.png"></div>
+								<div class="control-option active" data-value="class_2" data-pricefactor="1"><img src="/resources/images/icons/class_2.png"></div>
+							</div>
+						</div><!--
+						-->
+						<div id="direction-control" class="control" data-feature="direction">
+							<div class="control-options">
+								<div class="control-option active" data-value="oneway" data-pricefactor="1"><img src="/resources/images/icons/oneway.png"></div>
+								<div class="control-option" data-value="roundtrip" data-pricefactor="2"><img src="/resources/images/icons/roundtrip.png"></div>
+							</div>
+						</div><!--
+						-->
+						<div id="price-control" class="control" data-feature="price">
+							<div class="control-options">
+								<div class="control-option active" data-value="price_11" data-pricefactor="1"><img src="/resources/images/icons/price_11.png"></div>
+								<div class="control-option" data-value="price_12" data-pricefactor="0.5"><img src="/resources/images/icons/price_12.png"></div>
+							</div>
+						</div>
+					</div>
+
+					<div id="add-delete">
+						<p onclick="cloneActiveTicket();">+</p>
+						<p onclick="removeTicket();">-</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
