@@ -25,6 +25,8 @@ $(document).ready(function () {
 
     $("#msg-background").on('click', hideMsg);
 
+    $(".text-input").on('focus', clearInput);
+
 });
 
 function onTicketClick(event) {
@@ -261,4 +263,8 @@ function pulse(element) {
     window.setTimeout(function() {
         element.removeClass('pulse');
     }, 1000);
+}
+
+function clearInput(event) {
+    $(event.currentTarget).val("");
 }
