@@ -479,4 +479,14 @@ body {
       font-weight: 300;
       color: #eb0000; }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1); }
+  50% {
+    transform: scale(1.1, 1.1); }
+  100% {
+    transform: scale(1, 1); } }
+.pulse {
+  animation: pulse 0.5s linear; }
+
 /*# sourceMappingURL=ticketautomat.css.map */

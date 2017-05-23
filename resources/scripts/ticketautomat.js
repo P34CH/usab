@@ -30,8 +30,10 @@ $(document).ready(function () {
 function onTicketClick(event) {
     var ticket = $(event.currentTarget);
     activateTicket(ticket);
-    //activeTicket = ticket;
+    updateTicketEditor(ticket);
+}
 
+function updateTicketEditor(ticket) {
     var from = ticket.find(".from")[0].dataset.value;
     var to = ticket.find(".to")[0].dataset.value;
 
@@ -45,7 +47,6 @@ function onTicketClick(event) {
         var value = features[index].dataset.value;
         setEditorFeature(feature, value);
     }
-
     editor.show();
 }
 
@@ -87,6 +88,8 @@ function setTicketFeature(feature, value) {
         var featureItem = activeTicket.find(".feature[data-feature='" + feature + "']");
         var img = featureItem.children('img');
 
+        pulse(featureItem);
+
         img.attr('src', baseImgPath + value + ".png");
     }
 }
@@ -96,6 +99,8 @@ function onRouteChange(event) {
     var type = input.name;
 
     var target = activeTicket.find("." + type)[0];
+
+    pulse($(target));
 
     target.innerText = input.value;
     target.dataset.value = input.value;
@@ -111,7 +116,7 @@ function cloneActiveTicket() {
 function removeTicket() {
     var siblings = activeTicket.siblings(".ticket");
 
-    activeTicket.slideUp(function () {
+    activeTicket.slideUp(150, function () {
         activeTicket.remove();
         calcTotalPrice();
 
@@ -124,12 +129,14 @@ function removeTicket() {
         }
 
         activateTicket($(siblings[siblings.length - 1]));
-        //activeTicket = $(siblings[siblings.length - 1]);
     });
 }
 
 function setActiveTicketPrice(price, changeBasePrice) {
-    activeTicket.find(".price p")[0].innerText = price;
+    var priceElements = activeTicket.find(".price p");
+    priceElements[0].innerText = price;
+
+    pulse(priceElements);
 
     if (changeBasePrice) {
         activeTicket[0].dataset.baseprice = price;
@@ -168,12 +175,11 @@ function getValidPrice(price) {
 
 function addTicket(ticket) {
     activateTicket(ticket);
-    //activeTicket = ticket;
     activeTicket.removeAttr('style');
     activeTicket.removeAttr('id');
     ticket.addClass('invisibleTicket');
     ticket.appendTo("#tickets");
-    ticket.slideDown();
+    ticket.slideDown(250);
 
     $('#tickets').animate({
         scrollTop: ticket.offset().top
@@ -246,5 +252,13 @@ function activateTicket(ticket) {
             }
         }
         activeTicket.addClass('activeTicket');
+        updateTicketEditor(ticket);
     }
+}
+
+function pulse(element) {
+    element.addClass('pulse');
+    window.setTimeout(function() {
+        element.removeClass('pulse');
+    }, 1000);
 }
