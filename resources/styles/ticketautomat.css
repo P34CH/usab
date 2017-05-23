@@ -104,6 +104,9 @@ body {
       bottom: -32px;
       right: -32px; }
 
+#templateTicket {
+  display: none; }
+
 #languageSelector {
   position: absolute;
   top: 32px;
@@ -113,7 +116,15 @@ body {
     width: 48px;
     height: 48px;
     margin-right: 16px;
-    outline: none; }
+    background-color: #ffffff;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 48px;
+    color: #eb0000;
+    position: relative;
+    outline: none;
+    box-shadow: 1px 1px 5px #4c4c4c;
+    cursor: pointer; }
     #languageSelector .language-selector:last-child {
       margin-right: 0; }
 
@@ -150,6 +161,27 @@ body {
   #overview #tickets {
     max-height: calc(100% - 60px);
     overflow: scroll; }
+  #overview #personalizeRequest {
+    padding-top: 200px;
+    text-align: center; }
+    #overview #personalizeRequest img:not(#iphone) {
+      width: 55%;
+      opacity: 0.5; }
+    #overview #personalizeRequest p {
+      color: #000000;
+      text-shadow: 0 0 5px #ffffff;
+      font-size: 1.2em;
+      font-weight: 300; }
+      #overview #personalizeRequest p:last-child {
+        font-size: 0.8em;
+        font-style: italic; }
+    #overview #personalizeRequest #iphone {
+      display: none;
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      width: 60%;
+      transform: rotate(-7deg); }
   #overview #total {
     display: none;
     box-sizing: border-box;
@@ -194,6 +226,8 @@ body {
   border-radius: 3px;
   background-color: #ffffff;
   color: #4c4c4c;
+  box-shadow: 1px 1px 5px #4c4c4c;
+  cursor: pointer;
   outline: none; }
   .ticket.invisibleTicket {
     display: none; }
@@ -312,49 +346,117 @@ body {
       #editor #add-delete p:first-child {
         right: 80px; }
 
-#mainArea-start #routeTarget {
+#personalized-start .routeTarget,
+#mainArea-start .routeTarget {
   margin-top: 20px;
   text-align: center; }
-  #mainArea-start #routeTarget input[name="target"] {
+  #personalized-start .routeTarget input[name="target"],
+  #mainArea-start .routeTarget input[name="target"] {
     width: 75%;
     text-align: center; }
+#personalized-start h2,
 #mainArea-start h2 {
   margin: 40px 0 10px 0;
   font-weight: 100;
   color: #ffffff;
   text-shadow: 0 0 5px #000000; }
-#mainArea-start #favorites #favoriteTickets {
+#personalized-start .favorites .favoriteTickets,
+#mainArea-start .favorites .favoriteTickets {
   font-size: 0;
   text-align: center; }
-  #mainArea-start #favorites #favoriteTickets .ticket {
+  #personalized-start .favorites .favoriteTickets .ticket,
+  #mainArea-start .favorites .favoriteTickets .ticket {
     display: inline-block;
     width: calc((100% / 3) - (1 * (32px / 2)));
     margin-top: 0;
     margin-left: 0;
     margin-right: 16px;
     text-align: left;
-    font-size: 1rem; }
-    #mainArea-start #favorites #favoriteTickets .ticket:nth-child(3n) {
+    font-size: 1rem;
+    box-shadow: 1px 1px 5px #4c4c4c;
+    cursor: pointer; }
+    #personalized-start .favorites .favoriteTickets .ticket:nth-child(3n),
+    #mainArea-start .favorites .favoriteTickets .ticket:nth-child(3n) {
       margin-right: 0; }
-    #mainArea-start #favorites #favoriteTickets .ticket:nth-last-child(1), #mainArea-start #favorites #favoriteTickets .ticket:nth-last-child(2), #mainArea-start #favorites #favoriteTickets .ticket:nth-last-child(3) {
+    #personalized-start .favorites .favoriteTickets .ticket:nth-last-child(1), #personalized-start .favorites .favoriteTickets .ticket:nth-last-child(2), #personalized-start .favorites .favoriteTickets .ticket:nth-last-child(3),
+    #mainArea-start .favorites .favoriteTickets .ticket:nth-last-child(1),
+    #mainArea-start .favorites .favoriteTickets .ticket:nth-last-child(2),
+    #mainArea-start .favorites .favoriteTickets .ticket:nth-last-child(3) {
       margin-bottom: 0; }
-#mainArea-start #more #ticketsAndServices {
+#personalized-start .more .ticketsAndServices,
+#mainArea-start .more .ticketsAndServices {
   font-size: 0;
   text-align: center; }
-  #mainArea-start #more #ticketsAndServices .service {
+  #personalized-start .more .ticketsAndServices .service,
+  #mainArea-start .more .ticketsAndServices .service {
     display: inline-block;
     width: calc((100% / 3) - (1 * (32px / 2)));
     margin-bottom: 16px;
     margin-right: 16px;
     border-radius: 3px;
-    background-color: #ffffff; }
-    #mainArea-start #more #ticketsAndServices .service:nth-child(3n) {
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px #4c4c4c;
+    cursor: pointer; }
+    #personalized-start .more .ticketsAndServices .service:nth-child(3n),
+    #mainArea-start .more .ticketsAndServices .service:nth-child(3n) {
       margin-right: 0; }
-    #mainArea-start #more #ticketsAndServices .service:nth-last-child(1), #mainArea-start #more #ticketsAndServices .service:nth-last-child(2), #mainArea-start #more #ticketsAndServices .service:nth-last-child(3) {
+    #personalized-start .more .ticketsAndServices .service:nth-last-child(1), #personalized-start .more .ticketsAndServices .service:nth-last-child(2), #personalized-start .more .ticketsAndServices .service:nth-last-child(3),
+    #mainArea-start .more .ticketsAndServices .service:nth-last-child(1),
+    #mainArea-start .more .ticketsAndServices .service:nth-last-child(2),
+    #mainArea-start .more .ticketsAndServices .service:nth-last-child(3) {
       margin-bottom: 0; }
-    #mainArea-start #more #ticketsAndServices .service h4 {
+    #personalized-start .more .ticketsAndServices .service h4,
+    #mainArea-start .more .ticketsAndServices .service h4 {
       font-size: 1.2rem;
       color: #eb0000;
       font-weight: 300; }
+
+#personalized-start {
+  display: none; }
+  #personalized-start h1 {
+    color: #eb0000;
+    font-weight: 300;
+    text-shadow: 0 0 10px #ffffff; }
+  #personalized-start .more .ticketsAndServices .service h4 {
+    margin-bottom: 0; }
+  #personalized-start .more .ticketsAndServices .service p {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #4c4c4c; }
+
+#msg-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
+  #msg-background .msg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 250px;
+    margin-left: -400px;
+    margin-top: -225px;
+    padding: 32px;
+    background-color: white;
+    border-radius: 3px; }
+    #msg-background .msg #msg-closer {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      width: 32px;
+      height: 32px;
+      border: 1px solid grey;
+      border-radius: 16px;
+      text-align: center;
+      line-height: 32px;
+      color: grey;
+      cursor: pointer; }
+    #msg-background .msg h2 {
+      font-weight: 300;
+      color: #eb0000; }
 
 /*# sourceMappingURL=ticketautomat.css.map */

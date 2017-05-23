@@ -3,13 +3,27 @@ var baseImgPath = "/resources/images/icons/";
 
 $(document).ready(function () {
 
+	$("#languageSelector").on('click', ".language-selector", showMsg);
+
 	$("#tickets").on('click', ".ticket", onTicketClick);
 
 	$("#controls").on('click', ".control-option", onFeatureChange);
 
 	$("#route").on('change', "input", onRouteChange);
 
-	$("#favoriteTickets").on('click', ".ticket", onFavoriteTicketClick);
+	$("#via").find("p").on('click', showMsg);
+
+	$("input[name='target']").on('change', onTargetChange);
+
+	$(".favoriteTickets").on('click', ".ticket", onFavoriteTicketClick);
+
+	$("#personalizeRequest").on('click', showPersonalization);
+
+	$("#iphone").on('click', hidePersonalization);
+
+	$(".ticketsAndServices").on('click', ".service", showMsg);
+
+	$("#msg-background").on('click', hideMsg);
 
 });
 
@@ -102,6 +116,9 @@ function removeTicket() {
 	if ($("#tickets").find(".ticket").length === 0) {
 		$("#editor").hide();
 		$("#mainArea-start").show();
+
+		var personalizeRequest = $("#personalizeRequest");
+		personalizeRequest.fadeIn(150);
 	}
 }
 
@@ -146,6 +163,7 @@ function getValidPrice(price) {
 function addTicket(ticket) {
 	activeTicket = ticket;
 	activeTicket.removeAttr('style');
+	activeTicket.removeAttr('id');
 	ticket.addClass('invisibleTicket');
 	ticket.appendTo("#tickets");
 	ticket.slideDown();
@@ -155,6 +173,27 @@ function addTicket(ticket) {
 	}, 500);
 
 	calcTotalPrice();
+
+	var personalizeRequest = $("#personalizeRequest");
+	if (personalizeRequest.is(":visible")) {
+		personalizeRequest.fadeOut(100);
+	}
+}
+
+function onTargetChange(event) {
+	var target = $(event.currentTarget).val();
+	var ticket = $('#templateTicket').clone();
+	var to = ticket.find(".to")[0];
+	to.innerText = target;
+	to.dataset.value = target;
+
+	var price = getRandomPrice();
+	ticket[0].dataset.baseprice = price;
+	ticket.find(".price p")[0].innerText = price;
+
+	addTicket(ticket);
+	$("#mainArea-start").hide();
+	activeTicket.click();
 }
 
 
@@ -162,5 +201,28 @@ function onFavoriteTicketClick(event) {
 	var ticket = $(event.currentTarget).clone();
 	addTicket(ticket);
 	$("#mainArea-start").hide();
+	$("#personalized-start").hide();
 	activeTicket.click();
+}
+
+function showMsg() {
+	$("#msg-background").fadeIn(150);
+}
+
+function hideMsg() {
+	$("#msg-background").fadeOut(100);
+}
+
+
+function showPersonalization() {
+	$("#mainArea-start").hide();
+	$("#personalized-start").show();
+	$("#iphone").fadeIn(200);
+}
+
+function hidePersonalization() {
+	$("#iphone").fadeOut(100);
+	$("#personalized-start").hide();
+	$("#mainArea-start").show();
+	return false;
 }

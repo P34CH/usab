@@ -87,6 +87,10 @@ body {
 	}
 }
 
+#templateTicket {
+	display: none;
+}
+
 #languageSelector {
 	position: absolute;
 	top: $margin;
@@ -98,11 +102,36 @@ body {
 		width: $itemSize;
 		height: $itemSize;
 		margin-right: $width / 100;
+		background-color: $color-white;
+		border-radius: 3px;
+		text-align: center;
+		line-height: $itemSize;
+		color: $color-red;
+		position: relative;
+
 		outline: $outline;
+
+		box-shadow: 1px 1px 5px $color-grey;
+		cursor: pointer;
 
 		&:last-child {
 			margin-right: 0;
 		}
+
+		//&:before {
+		//	position: absolute;
+		//	left: 0;
+		//	top: 0;
+		//	content: "";
+		//	display: inline-block;
+		//	background-image: url('/resources/images/language.svg');
+		//	width: 100%;
+		//	height: 100%;
+		//	background-size: 40%;
+		//	background-repeat: no-repeat;
+		//	background-position: 10% 50%;
+		//	opacity: 0.5;
+		//}
 	}
 }
 
@@ -152,6 +181,37 @@ body {
 	#tickets {
 		max-height: calc(100% - 60px);
 		overflow: scroll;
+	}
+
+	#personalizeRequest {
+		padding-top: 200px;
+		text-align: center;
+
+		img:not(#iphone) {
+			width: 55%;
+			opacity: 0.5;
+		}
+
+		p {
+			color: $color-black;
+			text-shadow: 0 0 5px $color-white;
+			font-size: 1.2em;
+			font-weight: 300;
+
+			&:last-child {
+				font-size: 0.8em;
+				font-style: italic;
+			}
+		}
+
+		#iphone {
+			display: none;
+			position: absolute;
+			top: 10%;
+			left: 20%;
+			width: 60%;
+			transform: rotate(-7deg);
+		}
 	}
 
 	#total {
@@ -213,6 +273,9 @@ body {
 
 	background-color: $color-white;
 	color: $color-grey;
+
+	box-shadow: 1px 1px 5px $color-grey;
+	cursor: pointer;
 
 	outline: $outline;
 
@@ -399,9 +462,10 @@ body {
 	}
 }
 
+#personalized-start,
 #mainArea-start {
 
-	#routeTarget {
+	.routeTarget {
 		margin-top: 20px;
 		text-align: center;
 
@@ -418,9 +482,9 @@ body {
 		text-shadow: 0 0 5px $color-black;
 	}
 
-	#favorites {
+	.favorites {
 
-		#favoriteTickets {
+		.favoriteTickets {
 			font-size: 0;
 			text-align: center;
 
@@ -432,6 +496,9 @@ body {
 				margin-right: $margin / 2;
 				text-align: left;
 				font-size: 1rem;
+
+				box-shadow: 1px 1px 5px $color-grey;
+				cursor: pointer;
 
 				&:nth-child(3n) {
 					margin-right: 0;
@@ -446,9 +513,9 @@ body {
 		}
 	}
 
-	#more {
+	.more {
 
-		#ticketsAndServices {
+		.ticketsAndServices {
 			font-size: 0;
 			text-align: center;
 
@@ -459,6 +526,9 @@ body {
 				margin-right: $margin / 2;
 				border-radius: 3px;
 				background-color: $color-white;
+
+				box-shadow: 1px 1px 5px $color-grey;
+				cursor: pointer;
 
 				&:nth-child(3n) {
 					margin-right: 0;
@@ -479,4 +549,76 @@ body {
 		}
 	}
 
+}
+
+#personalized-start {
+	display: none;
+
+	h1 {
+		color: $color-red;
+		font-weight: 300;
+		text-shadow: 0 0 10px $color-white;
+	}
+
+	.more {
+
+		.ticketsAndServices {
+
+			.service {
+
+				h4 {
+					margin-bottom: 0;
+				}
+
+				p {
+					font-size: 1rem;
+					margin-top: 5px;
+					color: $color-grey;
+				}
+			}
+		}
+	}
+}
+
+
+#msg-background {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	.msg {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		width: 800px;
+		height: 250px;
+		margin-left: -400px;
+		margin-top: -225px;
+		padding: 32px;
+		background-color: white;
+		border-radius: 3px;
+
+		#msg-closer {
+			position: absolute;
+			right: 16px;
+			top: 16px;
+			width: 32px;
+			height: 32px;
+			border: 1px solid grey;
+			border-radius: 16px;
+			text-align: center;
+			line-height: 32px;
+			color: grey;
+			cursor: pointer;
+		}
+
+		h2 {
+			font-weight: 300;
+			color: $color-red;
+		}
+	}
 }
