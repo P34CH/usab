@@ -138,8 +138,7 @@ body {
   outline: none; }
   #clock#clock,
   #logo#clock {
-    right: 277.33333px;
-    background-color: #ffffff; }
+    right: 277.33333px; }
     #clock#clock #clock_sbb svg,
     #logo#clock #clock_sbb svg {
       margin-left: 43px; }
@@ -211,10 +210,16 @@ body {
     padding: 16px; }
 
 #logo {
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  vertical-align: middle;
+  text-align: center; }
+  #logo span {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; }
   #logo img {
     vertical-align: middle;
-    max-width: 100%;
+    max-width: 80%;
     display: inline-block; }
 
 .ticket {

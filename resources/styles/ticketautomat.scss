@@ -148,7 +148,7 @@ body {
 
 	&#clock {
 		right: $blockWidth + (2 * $margin);
-		background-color: $color-white;
+		//background-color: $color-white;
 
 		#clock_sbb {
 
@@ -255,13 +255,22 @@ body {
 
 #logo {
 	background-color: $color-white;
+	vertical-align: middle;
+	text-align: center;
+
+	span {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
 
 	img {
 		vertical-align: middle;
-		max-width: 100%;
+		max-width: 80%;
 		display: inline-block;
 	}
 }
+
 
 .ticket {
 	box-sizing: border-box;
